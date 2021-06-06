@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  
+  
+  body {
+    position: relative;
+    background-image: url("/imgs/Background.svg");
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    margin-top: 200px;
+  }
+  
+  #area {
+    position: relative;
+    display: block;
+    width: 450px;
+    height: 509px;
+    background-color: #555555;
+    border-radius: 20px;
+    margin: 0 auto;
+  }
+  
+  .form {
+    text-align: justify;
+    position: relative;
+  }
+  
+  .titulo {
+    font-size: 38px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+    padding-top: 8%;
+    margin-bottom: 5px;
+  }
+  
+  .titulo2 {
+    font-size: 38px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+    padding-top: 2%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  input {
+    margin-left: 117px;
+    border-color: white;
+    border-radius: 4px;
+    background-color: #555;
+    width: 210px;
+    height: 40px;
+    border: 1px solid white;
+    color:white;
+  }
+  
+  .btn1 {
+    width: 215px;
+    height: 44px;
+    background-color: #f2b74a;
+    border: none;
+    color: white;
+    font-size: 14px;
+    margin-top: 0px;
+  }
+  
+  .btn2 {
+    width: 215px;
+    height: 44px;
+    background-color: #f2b74a;
+    border: none;
+    color: white;
+    font-size: 14px;
+    margin-top: 33px;
+    margin-bottom: 52px;
+    margin-right: 113px;
+    margin-left: 121px;
+  }
+  
+  hr {
+    width: 70%;
+    opacity: 0.5;
+    margin-top: 55px;
+    margin-bottom: 0px;
+    margin-left:auto;
+    margin-right:auto;
+  
+  }
+  
+  /* trecho para o texto placeholder - solução S.OverFlow */
+  ::-webkit-input-placeholder {
+    color: white;
+    font-size: 14px;
+    padding: 15px;
+  }
+  
+  :-moz-placeholder {
+    /* Firefox 18- */
+    color: white;
+    font-size: 14px;
+    padding: 15px;
+  }
+  
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: white;
+    font-size: 14px;
+    padding: 15px;
+  }
+  
+  :-ms-input-placeholder {
+    color: white;
+    font-size: 14px;
+    padding: 15px;
+  }
+  
