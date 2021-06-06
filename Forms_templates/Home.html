@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="/styles/styleHome.css">
+    
+</head>
+
+<body>
+    <header>
+        <link rel="stylesheet" href="/styles/styleHeader.css">  
+        <!-- logo <img class="logo" src="./public/img/logo.svg" alt="logo" onclick="window.location.replace('./Main_Page.php');"> -->
+        <h1 class="tgeral">Odontologia</h1>       
+    </header>
+    
+    
+    
+
+    <div id="area">
+        
+        <form class="form" action="./Ficha_Ident_Page.php" method="post">
+            <p class="titulo">Cadastrar<br> Paciente</p>
+            <br>
+            <input class="btn1" type="submit" value="CADASTRE-SE">
+            <hr>
+        </form>
+        
+        <form class="form" action="./Consul_Ficha_Ident_Page.php" method="post">
+            <p class="titulo2">Consultar Prontuário</p>
+            <br>
+            <label ><input type="text" name="cpf" placeholder="CPF"></label>
+            <br>
+            <input class="btn2" type="submit" onclick="return Is_Empty();" value="CONSULTAR">
+        </form>    
+    
+        
+    </div>
+   
+</body>
+<!-- <script src="./public/js/Is_Empty_Function.js"></script> -->   
+</html>

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consultar Anamnese</title>
+    <link rel="stylesheet" href="/styles/styleConsultAnamnese.css" />
+</head>
+
+<body onload= "Disable_Text_Box_Edit();" >
+    <script>
+        function Disable_Text_Box_Edit(){
+        
+        var Inputs=document.getElementsByTagName("input");
+        
+        for(var i=0;i<=Inputs.length;i++){
+            try{
+                Inputs[i].setAttribute("readonly", "readonly");
+            }
+            catch{}
+        }
+    }
+    </script> 
+<header>
+        <link rel="stylesheet" href="/styles/styleHeader.css">  
+        <!-- logo no canto superior esquerdo <img class="logo" src="./public/img/logo.svg" alt="logo" onclick="window.location.replace('./Main_Page.php');"> --> 
+        <h1 class="tgeral">Consulta Anamnese</h1>      
+    </header>
+<?php include "./public/php/Consul_Ficha_Anamnese_Page_Code.php" ?>
+
+
+    <form class="form" action="Prontuario_Page.php"  method="post">
+        <div class="section">
+            <div class="controla-grupo1">
+                <label class="controla-label" for="nome_do_paciente">Nome do Paciente:</label>
+                <br />
+                <input type="text" class="inputstxt" name="nome_do_paciente" id="nome_do_paciente" value="<?php echo $nome; ?>"/>
+            </div>
+
+            <div class="controla-grupo">
+                <label class="controla-label" for="cpf">CPF:</label>
+                <br />
+                <input type="text" class="inputstxt" id="cpf" name="cpf" value="<?php echo $cpf; ?>"/>
+            </div>
+        </div>
+        <div class="section">
+            <label for="queixa_principal" class="controla-label">Queixa Principal:</label>
+            <br>
+            <input type="text" class="inputstxt" name="queixa_principal" id="queixa_principal" value="<?php echo $queixa; ?>">
+        </div>
+
+        <div class="section">
+            <label for="historico_da_doenca_atual" class="controla-label">Histórico da Doença Atual:</label>
+            <br>
+            <input type="text" class="inputstxt" name="historico_da_doenca_atual" id="historico_da_doenca_atual" value="<?php echo $his_doenca; ?>">
+        </div>
+
+        <fieldset>
+            <legend>Questionário de Saúde</legend>
+            <div class="questsaude-esq">
+                <div class="section2">
+
+                    <div class="linha">
+                        <label id="hemorragia" for="rd_hemorragia">Já teve hemorragia?</label>
+                        <div>
+                            <!-- div somente para separar label dos inputs-->
+                            <input type="text" class="inputstxt" name="hemorragia" id="hemorragia" value="<?php echo $hemorragia; ?>">
+                        </div>
+                    </div>
+
+                    <div class="linha">
+                        <label id="alergia" for="rd_alergia">Sofre(u) de alergia?</label>
+                        <div>
+                            <!-- div somente para separar label dos inputs-->
+                            <input type="text" class="inputstxt" name="alergia" id="alergia" value="<?php echo $alergia; ?>">
+                        </div>
+                    </div>
+
+                    <div class="linha">
+                        <label id="infeccioso" for="rd_infeccioso">Teve reumatismo infeccioso?</label>
+                        <div>
+                            <!-- div somente para separar label dos inputs-->
+                            <input type="text" class="inputstxt" name="reuma_infec" id="reuma_infec" value="<?php echo $reuma_infec; ?>">
+                        </div>
+                    </div>
+
+                    <div class="linha">
+                        <label id="cardiovasculhar" for="rd_cardiovasculhar">Sofre de distúrbio cardiovascular?</label>
+                        <div>
+                            <!-- div somente para separar label dos inputs-->
+                            <input type="text" class="inputstxt" name="dis_cardi" id="dis_cardi" value="<?php echo $dis_cardi; ?>">
+                        </div>
+                    </div>
+
+                    <div class="linha">
+                        <label id="gastrite" for="rd_gastrite">Sofre de gastrite?</label>
+                        <div>
+                            <!-- div somente para separar label dos inputs-->
+                            <input type="text" class="inputstxt" name="gastrite" id="gastrite" value="<?php echo $gastrite; ?>">
+                        </div>
+                    </div>
+
+                    <div class="linha">
+                        <label id="diabeticos" for="rd_diabeticos">Diabético ou tem familiares diabéticos?</label>
+                        <div>
+                            <!-- div somente para separar label dos inputs-->
+                            <input type="text" class="inputstxt" name="diabete" id="diabete" value="<?php echo $diabete; ?>">
+                        </div>
+                    </div>
+
+                    <div class="linha">
+                        <label id="vez" for="rd_vez">Já desmaiou alguma vez?</label>
+                        <div>
+                            <!-- div somente para separar label dos inputs-->
+                            <input type="text" class="inputstxt" name="desmaio" id="desmaio" value="<?php echo $desmaio; ?>">
+                        </div>
+                    </div>
+                    <!--neste ponto o questsaude-esq n é fechado propositalmente, para fim de flutuar o questsaude-dir a direita-->
+                </div>
+
+                <div class="questsaude-dir">
+                    <div class="section2">
+
+                        <div class="linha">
+                            <label id="medico" for="rd_medico">Está sob tratamento médico?</label>
+                            <div>
+                                <!-- div somente para separar label dos inputs-->
+                                <input type="text" class="inputstxt" name="tratamento_med" id="tratamento_med" value="<?php echo $tratamento_med; ?>">
+                            </div>
+                        </div>
+
+                        <div class="linha">
+                            <label id="medicamento" for="rd_medicamento">Está tomando algum medicamento?</label>
+                            <div>
+                                <!-- div somente para separar label dos inputs-->
+                                <input type="text" class="inputstxt" name="medicamento" id="medicamento" value="<?php echo $medicamento; ?>">
+                            </div>
+                        </div>
+
+                        <div class="linha">
+                            <label id="anos" for="rd_anos">Esteve doente ou foi operado <br>nos últimos 5 anos?</label>
+                            <div>
+                                <!-- div somente para separar label dos inputs-->
+                                <input type="text" class="inputstxt" name="operado" id="operado" value="<?php echo $operado; ?>">
+                            </div>
+                        </div>
+
+                        <div class="linha">
+                            <label id="manias" for="rd_manias">Tem hábitos, vícios ou manias?</label>
+                            <div>
+                                <!-- div somente para separar label dos inputs-->
+                                <input type="text" class="inputstxt" name="vicios" id="vicios" value="<?php echo $vicios; ?>">
+                            </div>
+                        </div>
+
+                        <div class="linha">
+                            <label id="depressao" for="rd_depressao">Tem ansiedade / depressão?</label>
+                            <div>
+                                <!-- div somente para separar label dos inputs-->
+                                <input type="text" class="inputstxt" name="ansiedade" id="ansiedade" value="<?php echo $ansiedade; ?>">
+                            </div>
+                        </div>
+
+                        <div class="linha">
+                            <label id="fumante" for="rd_fumante">É fumante?</label>
+                            <div>
+                                <!-- div somente para separar label dos inputs-->
+                                <input type="text" class="inputstxt" name="fumante" id="fumante" value="<?php echo $fumante; ?>">
+                            </div>
+                        </div>
+
+                        <div class="linha">
+                            <label id="diaria" for="tx_diaria">Frequência Diária: </label>
+                            <div>
+                                <!-- div somente para separar label dos inputs-->
+                                <input type="text" class="inputstxt" id="freq_fuma" name="freq_fuma" value="<?php echo $freq_fuma; ?>">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset class="doencas-familiares">
+            <legend id="doencas-familiares">Algum familiar teve alguma dessas doenças?</legend>
+
+            <div class="doencas-esq">
+                <div class="section3">
+                    <div class="linha">
+                        <label id="tuberculose" for="rd_tuberculose">Tuberculose</label>
+                        <input type="text" class="inputstxt" id="tuberculose" name="tuberculose" value="<?php echo $tuberculose; ?>">
+                    </div>
+
+                    <div class="linha">
+                        <label id="sifilis" for="rd_sifilis">Sífilis</label>
+                        <input type="text" class="inputstxt" id="sifilis" name="sifilis" value="<?php echo $sifilis; ?>">
+                    </div>
+
+                    <div class="linha">
+                        <label id="hepatite" for="rd_hepatite">Hepatite</label>
+                        <input type="text" class="inputstxt" id="hepatite" name="hepatite" value="<?php echo $hepatite; ?>">
+                    </div>
+
+                    <div class="linha">
+                        <label id="aids" for="rd_aids">AIDS</label>
+                        <input type="text" class="inputstxt" id="aids" name="aids" value="<?php echo $aids; ?>">
+                    </div>
+                </div>
+            </div>
+
+            <div class="doencas-dir">
+                <div class="section3">
+                    <div class="linha">
+                        <label id="sarampo" for="rd_sarampo">Sarampo</label>
+                        <input type="text" class="inputstxt" id="sarampo" name="sarampo" value="<?php echo $sarampo; ?>">
+                    </div>
+
+                    <div class="linha">
+                        <label id="caxumba" for="rd_caxumba">Caxumba</label>
+                        <input type="text" class="inputstxt" id="caxumba" name="caxumba" value="<?php echo $caxumba; ?>">
+                    </div>
+
+                    <div class="linha">
+                        <label id="outra" for="txt_outra">Outra:</label>
+                        <br>
+                        <br>
+                        <input type="text" class="inputstxt" id="txt_outra" name="txt_outra" value="<?php echo $outras; ?>">
+                    </div>
+                </div>
+            </div>
+
+
+        </fieldset>
+
+        <fieldset>
+            <legend class="legendf3">Questionário complementar infantil</legend>
+
+            <div class="section4">
+                <p>Odontopediatra</p>
+
+                <div class="linha">
+                    <label for="txt_gestacao">Histórico da gestação:</label>
+                    <br><br>
+                    <input type="text" class="inputstxt" name="txt_gestacao" id="txt_gestacao" value="<?php echo $his_gestacao; ?>" >
+                </div>
+
+                <div class="linha">
+                    <label id="parto" for="rd_parto">Nasceu de parto</label>
+                    <input type="text" class="inputstxt" id="txt_parto" name="txt_parto" value="<?php echo $parto; ?>">
+                </div>
+
+                <div class="linha">
+                    <label id="problema_parto" for="rd_problema_parto">A criança teve algum problema <br> no parto?</label>
+                    <input type="text" class="inputstxt" id="txt_prob_parto" name="txt_prob_parto" value="<?php echo $prob_parto; ?>">
+                </div>
+
+                <div class="linha">
+                    <label id="amamentacao" for="rd_amamentacao">A amamentação foi:</label>
+                    <input type="text" class="inputstxt" id="txt_amamentacao" name="txt_amamentacao" value="<?php echo $amamentacao; ?>">
+                    <label for="amamentacao_mamadeira">Mamadeira</label>
+                </div>
+
+                <div class="linha">
+                    <label id="ate_idade" for="txt_ate_idade">Até a idade:</label>
+                    <input type="text" class="inputstxt" id="txt_ate_idade" name="txt_ate_idade" value="<?php echo $idade_amament; ?>">
+                </div>
+                <div class="linha">
+                    <label id="anest_local" for="rd_anest_local">Já lhe foi dito para não <br> tomar anestesia local?</label>
+                    <input type="text" class="inputstxt" id="txt_anestesia" name="anestesia" value="<?php echo $anestesia; ?>">
+                </div>
+
+                <div class="linha">
+                    <label id="contagiosa" for="rd_contagiosa">Já teve ou viveu com alguém <br> que tivesse doença grave e <br> contagiosa?</label>
+                    <input type="text" class="inputstxt" id="txt_doenca_cont" name="txt_doenca_cont" value="<?php echo $doenca_cont; ?>">
+                </div>
+
+                <div class="linha">
+                    <label id="vacinada" for="rd_vacinada">A criança já foi vacinada?</label>
+                    <input type="text" class="inputstxt" id="txt_vacina" name="txt_vacina" value="<?php echo $vacina; ?>">
+                </div>
+
+            </div>
+        </fieldset>
+
+        <fieldset>
+
+            <div class="section5">
+                <legend id="lg_section5">Conduta da criança</legend>
+                <div class="linha">
+                    <label id="2anos_vidas" for="ck_2anos_vidas1">Durante os 2 primeiros anos de vida</label>
+                    <br>
+                    <br>
+
+                    <div class="ckboxs">
+                        <input type="text" class="inputstxt" id="txt_sentou" name="txt_sentou" value="<?php echo $sentou; ?>">
+                    </div>
+
+                    <div class="ckboxs">
+                        <input type="text" class="inputstxt" id="txt_engatinhou" name="txt_engatinhou" value="<?php echo $engatinhou; ?>">
+                    </div>
+
+                    <div class="ckboxs">
+                        <input type="text" class="inputstxt" id="txt_andou" name="txt_andou" value="<?php echo $andou; ?>">
+                    </div>
+                    <br><br>
+
+                    <div class="ckboxs">
+                        <input type="text" class="inputstxt" id="txt_falou" name="txt_falou" value="<?php echo $falou; ?>">
+                    </div>
+                </div>
+
+                <div class="linha">
+                    <label id="aprendizado" for="rd_aprendizado">No lar e na escola: teve alguma dificuldade no aprendizado?</label>
+                    <br>
+                    <br>
+                    <div class="ckboxs">
+                        <input type="text" class="inputstxt" id="txt_aprendizado" name="txt_aprendizado" value="<?php echo $aprendizado; ?>">
+                    </div>
+                </div>
+
+                <div class="linha">
+                    <label id="animico" for="animico_alegre">Estado anímico</label>
+                    <br>
+                    <br>
+
+                    <div class="ckboxs">
+                        <input type="text" class="inputstxt" id="txt_alegre" name="txt_alegre" value="<?php echo $alegre; ?>">
+                    </div>
+
+                    <div class="ckboxs">
+                        <input type="text" class="inputstxt" id="txt_triste" name="txt_triste" value="<?php echo $triste; ?>">
+                    </div>
+                    <div class="ckboxs">
+                        <input type="text" class="inputstxt" id="txt_tranquilo" name="txt_tranquilo" value="<?php echo $tranquilo; ?>">
+                    </div>
+
+                    <div class="ckboxs">
+                        <input type="text" class="inputstxt" id="txt_inquieto" name="txt_inquieto" value="<?php echo $inquieto; ?>">
+                    </div>
+                    <div class="ckboxs">
+                        <input type="text" class="inputstxt" id="txt_assustado" name="txt_assustado" value="<?php echo $assustado; ?>">
+                    </div>
+                </div>
+
+                <div class="linha">
+                    <label id="sono" for="ck_sono1">Tem sono</label>
+                    <br>
+                    <br>
+
+                    <div class="ckboxs">
+                        <input type="text" class="inputstxt" id="txt_sono" name="txt_sono" value="<?php echo $sono; ?>">
+                    </div>
+                </div>
+
+                <div class="linha">
+                    <label id="psicomotora" for="ck_psicomotora1">Conduta psicomotora</label>
+                    <br>
+                    <br>
+
+                    <div class="alinhar_psicomotora">
+                        <div class="ckboxs">
+                            <input type="text" class="inputstxt" id="txt_postura_normal" name="txt_postura_normal" value="<?php echo $postura_normal; ?>">
+                        </div>
+
+                        <div class="ckboxs">
+                            <input type="text" class="inputstxt" id="txt_postura_alter" name="txt_postura_alter" value="<?php echo $postura_alter; ?>">
+                        </div>
+                        <br><br>
+                        <div class="ckboxs">
+                            <input type="text" class="inputstxt" id="txt_fonacao_norm" name="txt_fonacao_norm" value="<?php echo $fonacao_norm; ?>">
+                        </div>
+
+                        <div class="ckboxs">
+                             <input type="text" class="inputstxt" id="txt_disturbio_fala" name="txt_disturbio_fala" value="<?php echo $disturbio_fala; ?>">
+                        </div>
+                        <br><br>
+                        <div class="ckboxs">
+                            <input type="text" class="inputstxt" id="txt_paralisia" name="txt_paralisia" value="<?php echo $paralisia; ?>">
+                        </div>
+
+                        <div class="ckboxs">
+                             <input type="text" class="inputstxt" id="txt_enu_noturna" name="txt_enu_noturna" value="<?php echo $enu_noturna; ?>">
+                        </div>
+                        <br><br>
+                        <div class="ckboxs">
+                             <input type="text" class="inputstxt" id="txt_desc_esfin" name="txt_desc_esfin" value="<?php echo $desc_esfin; ?>">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="linha">
+                    <label id="alimentacao" for="alimentacao_rejeita">Alimentação</label>
+                    <br>
+                    <br>
+
+                    <div class="ckboxs">
+                        <input type="text" class="inputstxt" id="txt_alimentacao" name="txt_alimentacao" value="<?php echo $alimentacao; ?>">
+                    </div>
+
+                </div>
+
+                <div class="linha">
+                    <label id="sociabilidade" for="sociabilidade_isolada">Sociabilidade</label>
+                    <br>
+                    <br>
+
+                    <div class="ckboxs">
+                        <input type="text" class="inputstxt" id="txt_sociabilidade" name="txt_sociabilidade" value="<?php echo $sociabilidade; ?>">
+                    </div>
+
+                </div>
+
+                <div class="linha">
+                    <label id="conduta" for="ck_conduta1">Apresenta alguma patologia de conduta</label>
+                    <br>
+                    <br>
+
+                    <div class="ckboxs">
+                        <input type="text" class="inputstxt" id="txt_tiques" name="txt_tiques" value="<?php echo $tiques; ?>">
+                    </div>
+
+                    <div class="ckboxs">
+                        <input type="text" class="inputstxt" id="txt_fobias" name="txt_fobias" value="<?php echo $fobias; ?>">
+                    </div>
+
+                    <div class="ckboxs">
+                        <input type="text" class="inputstxt" id="txt_ansiedade" name="txt_ansiedade" value="<?php echo $ansiedade; ?>">
+                    </div>
+
+                    <div class="ckboxs">
+                        <input type="text" class="inputstxt" id="txt_medo" name="txt_medo" value="<?php echo $medo; ?>">
+                    </div>
+                    <br>
+                    <br>
+
+                    <div class="ckboxs">
+                        <input type="text" class="inputstxt" id="txt_birra" name="txt_birra" value="<?php echo $birra; ?>">
+                    </div>
+
+                    <div class="ckboxs">
+                    <input type="text" class="inputstxt" id="txt_ciumes" name="txt_ciumes" value="<?php echo $ciumes; ?>">
+                    </div>
+                </div>
+
+                <div class="linha">
+                    <label for="txt_observacoes">Observações:</label>
+                    <br>
+                    <br>
+                    <input type="text" class="inputstxt" name="txt_observacoes" id="txt_observacoes" value="<?php echo $obaservacoes; ?>">
+                </div>
+
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Exame físico</legend>
+            <div class="exafisico-esq">
+                <div class="section6">
+
+                    <div class="linha">
+                        <label id="labios" for="labios_normal">Lábios</label>
+                        <div>
+                            <!-- div somente para separar label dos inputs-->
+                            <input type="text" class="inputstxt" id="labios" name="labios" value="<?php echo $labios; ?>">
+                        </div>
+                    </div>
+
+                    <div class="linha">
+                        <label id="jugal" for="jugal_normal">Mucosa jugal</label>
+                        <div>
+                            <!-- div somente para separar label dos inputs-->
+                            <input type="text" class="inputstxt" id="mucosa_jul" name="mucosa_jul" value="<?php echo $mucosa_jul; ?>">
+                        </div>
+                    </div>
+
+                    <div class="linha">
+                        <label id="lingua" for="lingua_normal">Língua</label>
+                        <div>
+                            <!-- div somente para separar label dos inputs-->
+                            <input type="text" class="inputstxt" id="lingua" name="lingua" value="<?php echo $lingua; ?>">
+                        </div>
+                    </div>
+
+                    <div class="linha">
+                        <label id="boca" for="boca_normal">Soalho da boca</label>
+                        <div>
+                            <!-- div somente para separar label dos inputs-->
+                            <input type="text" class="inputstxt" id="solalho" name="soalho" value="<?php echo $soalho; ?>">
+                        </div>
+                    </div>
+
+                    <div class="linha">
+                        <label id="duro" for="duro_normal">Palato duro</label>
+                        <div>
+                            <!-- div somente para separar label dos inputs-->
+                            <input type="text" class="inputstxt" id="palato_duro" name="palato_duro" value="<?php echo $palato_duro; ?>">
+                        </div>
+                    </div>
+
+                    <div class="linha">
+                        <label id="garganta" for="garganta_normal">Garganta</label>
+                        <div>
+                            <!-- div somente para separar label dos inputs-->
+                            <input type="text" class="inputstxt" id="garganta" name="garganta" value="<?php echo $garganta; ?>">
+                        </div>
+                    </div>
+
+                    <div class="linha">
+                        <label id="mole" for="rd_mole">Palato mole</label>
+                        <div>
+                            <!-- div somente para separar label dos inputs-->
+                            <input type="text" class="inputstxt" id="palato_mole" name="palato_mole" value="<?php echo $palato_mole; ?>">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="exafisico-dir">
+                    <div class="section6">
+
+                        <div class="linha">
+                            <label id="alveolar" for="alveolar_normal">Mucosa alveolar</label>
+                            <div>
+                                <!-- div somente para separar label dos inputs-->
+                                <input type="text" class="inputstxt" id="mucosa_alv" name="mucosa_alv" value="<?php echo $mucosa_alv; ?>">
+                            </div>
+                        </div>
+
+                        <div class="linha">
+                            <label id="gengivas" for="gengivas_normal">Gengivas</label>
+                            <div>
+                                <!-- div somente para separar label dos inputs-->
+                                <input type="text" class="inputstxt" id="gengivas" name="gengivas" value="<?php echo $gengivas; ?>">
+                            </div>
+                        </div>
+
+                        <div class="linha">
+                            <label id="salivares" for="salivares_normal">Glândulas salivares</label>
+                            <div>
+                                <!-- div somente para separar label dos inputs-->
+                                <input type="text" class="inputstxt" id="glandulas" name="glandulas" value="<?php echo $glandulas; ?>">
+                            </div>
+                        </div>
+
+                        <div class="linha">
+                            <label id="linfonodos" for="linfonodos_normal">Linfonodos</label>
+                            <div>
+                                <!-- div somente para separar label dos inputs-->
+                                <input type="text" class="inputstxt" id="linfonodos" name="linfonodos" value="<?php echo $linfonodos; ?>">
+                            </div>
+                        </div>
+
+                        <div class="linha">
+                            <label id="atm" for="atm_normal">ATM</label>
+                            <div>
+                                <!-- div somente para separar label dos inputs-->
+                                <input type="text" class="inputstxt" id="atm" name="atm" value="<?php echo $atm; ?>">
+                            </div>
+                        </div>
+
+                        <div class="linha">
+                            <label id="mastigadores" for="mastigadores_normal">Músculos mastigadores</label>
+                            <div>
+                                <!-- div somente para separar label dos inputs-->
+                                <input type="text" class="inputstxt" id="mastigadores" name="mastigadores" value="<?php echo $mastigadores; ?>">
+                            </div>
+                        </div>
+
+                        <div class="linha">
+                            <label id="oclusao" for="rd_oclusao">Oclusão</label>
+                            <div>
+                                <!-- div somente para separar label dos inputs-->
+                                <input type="text" class="inputstxt" id="oclusao" name="oclusao" value="<?php echo $oclusao; ?>">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+        </fieldset>
+
+        <fieldset>
+
+            <div class="section7">
+
+                <br>
+                <div class="linha">
+                    <label for="txt_encontradas">Alterações encontradas</label>
+                    <br>
+                    <br>
+                    <input class="txtsf6" type="text" name="txt_encontradas" id="txt_encontradas" value="<?php echo $alteracoes; ?>">  
+                </div>
+
+                <div class="linha">
+                    <div class="alinhar_pressoes">
+                        <label for="txt_minima">Pressão Arterial Máxima</label>
+                        <br>
+                        <br>
+                        <input class="txtsf6min" type="text" name="txt_minima" id="txt_minima" value="<?php echo $press_min; ?>">
+                    </div>
+
+                    <div class="divmaxima">
+                        <label for="txt_maxima">Pressão Arterial Máxima</label>
+                        <br>
+                        <br>
+                        <input class="txtsf6min" type="text" name="txt_maxima" id="txt_maxima" value="<?php echo $press_max; ?>">
+                    </div>
+                </div>
+
+                <div class="linha">
+                    <label for="txt_presuntivo">Diagnóstico Presuntivo</label>
+                    <br>
+                    <br>
+                    <input class="txtsf6" type="text" name="txt_presuntivo" id="txt_presuntivo" value="<?php echo $diag_presun; ?>">
+                </div>
+
+                <div class="linha">
+                    <label for="txt_complementares">Exames complementares</label>
+                    <br>
+                    <br>
+                    <input class="txtsf6" type="text" name="txt_complementares" id="txt_complementares" value="<?php echo $exam_comp; ?>">
+                </div>
+
+                <div class="linha">
+                    <label for="txt_definitivo">Diagnóstico definitivo</label>
+                    <br>
+                    <br>
+                    <input class="txtsf6" type="text" name="txt_definitivo" id="txt_definitivo" value="<?php echo $diag_defini; ?>">
+                </div>
+
+                <div class="linha">
+                    <label for="txt_proservacao">Tratamento/Proservação</label>
+                    <br>
+                    <br>
+                    <input class="txtsf6" type="text" name="txt_proservacao" id="txt_proservacao" value="<?php echo $tratamento_odo; ?>">
+                </div>
+
+                <div class="linha">
+                    <label for="txt_tratamento">Plano de tratamento</label>
+                    <br>
+                    <br>
+                    <input class="txtsf6" type="text" name="txt_tratamento" id="txt_tratamento" value="<?php echo $plano_trat; ?>">
+                </div>
+
+                <br>
+                <br>
+                <div class="linha">
+                <label for="ck_urgencia">Atendimento de Urgência (Estágio Sup. em Clínica Odontológica Integrada – URGÊNCIA)</label>
+                <input class="txtsf6" type="text" name="urgencia" id="urgencia" value="<?php echo $urgencia; ?>">
+                </div>
+
+                <div class="linha">
+                    <div class="f6ultlinha">
+                        <label for="medicacao_nao">Medicação</label>
+                        <input class="txtsf6min" type="text" name="txt_medicacao" id="txt_medicacao" value="<?php echo $medicacao; ?>" >
+                    <br>
+                    <br>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <br>
+        <br>
+        <br>
+        <div class="btns_rodape">
+        <br>
+        <br>
+        <br> 
+
+            <input type="button" value="Voltar" onclick="Go_Back()" id="btn_menu">
+            
+            <div class="btn_proximo">
+                <input type="submit" value="Proximo" id="btn_proximo">
+            </div>
+        </div>
+    </form>
+    <!-- <script src="./public/js/Go_Back_Function.js"></script> -->
+    <!-- <script src="./public/js/Correct_Answer_Function.js"></script> -->
+</body>
+
+</html>
